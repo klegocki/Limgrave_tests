@@ -13,4 +13,3 @@ class Weapon(Item):
 
     def decrease_durability(self):
         self.durability -= 1
-        if self.durability < 0: self.durability = 0

@@ -138,7 +138,7 @@ class Game:
         if dec.lower() == 'p':
             for item in self.player.inventory.items:
                 if isinstance(item, Potion):
-                    item.use(self.player)
+                    item.use_potion(self.player)
                     self.player.inventory.remove_item(item)
                     return
             print("No potions!")

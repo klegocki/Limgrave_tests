@@ -7,6 +7,6 @@ class Potion(Item):
         super().__init__(name, value)
         self.heal_amount = heal_amount
 
-    def use(self, character):
+    def use_potion(self, character):
         character.heal(self.heal_amount)
         print(f" > Drank {self.name}. Healed {self.heal_amount} HP.")

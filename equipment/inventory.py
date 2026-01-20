@@ -7,12 +7,17 @@ class Inventory:
         self.items = []
 
     def add_item(self, item):
-        self.items.append(item)
-        print(f" + Added to inventory: {item.name}")
+        if item in self.items:
+            print(f"Item {item.name} is already in your inventory")
+        else:
+            self.items.append(item)
+            print(f" + Added to inventory: {item.name}")
 
     def remove_item(self, item):
         if item in self.items:
             self.items.remove(item)
+        else:
+            print(f" Inventory is empty")
 
     def get_any_weapon(self):
         for item in self.items:
