@@ -17,7 +17,7 @@ class Inventory:
         if item in self.items:
             self.items.remove(item)
         else:
-            print(f" Inventory is empty")
+            print(f" There is no {item.name} in your inventory")
 
     def get_any_weapon(self):
         for item in self.items:
