@@ -9,7 +9,7 @@ from equipment.spell import Spell
 def spell():
     return Spell("lightning bolt", 20, 25)
 
-def test_cast_success(mocker, spell):
+def test_cast_success(mocker, spell, capsys):
 
     mock_caster = mocker.Mock(spec=Player)
     mock_caster.name = "player"
@@ -19,12 +19,14 @@ def test_cast_success(mocker, spell):
     mocker.patch('random.randint', return_value=25)
 
     result = spell.cast(mock_caster, mock_enemy)
+    captured = capsys.readouterr()
 
     assert result == True
     assert mock_caster.mp == 0
+    assert captured.out.strip() == "*** player casts lightning bolt! (Dmg: 25) ***"
     mock_enemy.take_damage.assert_called_once_with(25)
 
-def test_cast_failure(mocker, spell):
+def test_cast_failure(mocker, spell, capsys):
 
     mock_caster = mocker.Mock(spec=Player)
     mock_caster.name = "player"
@@ -33,6 +35,8 @@ def test_cast_failure(mocker, spell):
     mock_enemy = mocker.Mock(spec=Enemy)
 
     result = spell.cast(mock_caster, mock_enemy)
+    captured = capsys.readouterr()
 
     assert result == False
     assert mock_caster.mp < spell.cost
+    assert captured.out.strip() == "! Not enough MP for lightning bolt! (Cost: 20, You have: 19)"
