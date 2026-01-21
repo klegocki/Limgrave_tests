@@ -11,5 +11,5 @@ class Enemy(Character):
 
     def perform_action(self, player):
         dmg = random.randint(1, self.strength)
-        print(f" ! {self.name} attacks you for {dmg}!")
+        print(f" ! {self.name} attacks you for {dmg} damage!")
         player.take_damage(dmg)
