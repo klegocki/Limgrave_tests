@@ -13,17 +13,25 @@ class Character:
         return self.hp > 0
 
     def take_damage(self, dmg):
+
         self.hp -= dmg
         if self.hp < 0: self.hp = 0
+
         print(f" - {self.name} takes {dmg} damage! (HP: {self.hp}/{self.max_hp})")
 
     def heal(self, amount):
-        self.hp += amount
-        if self.hp > self.max_hp: self.hp = self.max_hp
+
+        if amount > 0:
+            self.hp += amount
+            if self.hp > self.max_hp: self.hp = self.max_hp
+        else:
+            print(f"Critical error: can not heal with negative value!")
 
     def gain_experience(self, exp):
+
         self.experience += exp
         print(f" + Gained {exp} XP (Total: {self.experience}/100)")
+
         if self.experience >= 100:
             print(f" *** LEVEL UP! {self.name} is stronger! ***")
             self.max_hp += 10
