@@ -2,6 +2,7 @@ import random
 import time
 
 from equipment.weapon import Weapon
+from game.database import Database
 
 
 class BattleSystem:
@@ -71,6 +72,9 @@ class BattleSystem:
                     return True
 
             if not player.is_alive():
+                with Database("player_save.db") as db:
+                    db.delete_save_file(player.name)
+
                 print("\n *** YOU DIED ***")
                 return False
         return False

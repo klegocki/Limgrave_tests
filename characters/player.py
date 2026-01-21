@@ -7,8 +7,8 @@ from equipment.weapon import Weapon
 
 class Player(Character):
 
-    def __init__(self, name):
-        super().__init__(name, hp=100, mp=50, strength=10)
+    def __init__(self, name, hp=100, mp=50, strength=10, max_mp=50, max_hp=100, experience=0):
+        super().__init__(name, hp=hp, mp=mp, strength=strength, max_mp=max_mp, max_hp=max_hp, experience=experience)
         self.inventory = Inventory()
         self.equipped_weapon = None
         self.spells = []
@@ -16,9 +16,6 @@ class Player(Character):
     def equip(self, weapon):
 
         if isinstance(weapon, Weapon):
-            if not weapon in self.inventory.items:
-                self.inventory.add_item(weapon)
-
             self.equipped_weapon = weapon
             print(f" > Equipped: {weapon.name}")
 

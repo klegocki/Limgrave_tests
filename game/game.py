@@ -7,6 +7,7 @@ from equipment.potion import Potion
 from equipment.spell import Spell
 from equipment.weapon import Weapon
 from game.battle_system import BattleSystem
+from game.database import Database
 
 
 class Game:
@@ -18,20 +19,115 @@ class Game:
         self.did_boss_appear = False
 
     def start(self):
+
+        with Database("player_save.db") as db:
+            db.create_table()
+
         print("Welcome to Limgrave!")
-        name = input("Enter your character's name: ")
-        self.player = Player(name)
+        print("1. New game")
+        print("2. Load game")
+        while True:
+            choice = input("Choice: ")
 
-        sword = Weapon("Rusted Sword", 10, 6, durability=20)
-        self.player.inventory.add_item(sword)
-        self.player.equip(sword)
-        self.player.inventory.add_item(Potion("Flask of Crimson Tears", 1, 30))
+            match choice:
+                case "1":
+                    while True:
+                        name = input("Enter your character's name: ")
 
-        fireball = Spell("Fireball", cost=15, damage=25)
-        self.player.learn_spell(fireball)
+                        with Database("player_save.db") as db:
+                            result = db.fetch_all_save_files()
 
-        while self.running and self.player.is_alive():
-            self.main_menu()
+                            if not name in result:
+                                break
+                            else:
+                                print("Player name is already taken." + "\n")
+
+
+                    self.player = Player(name)
+
+                    sword = Weapon("Rusted Sword", 10, 6, durability=20)
+                    self.player.inventory.add_item(sword)
+                    self.player.equip(sword)
+                    self.player.inventory.add_item(Potion("Flask of Crimson Tears", 1, 30))
+
+                    fireball = Spell("Fireball", cost=15, damage=25)
+                    self.player.learn_spell(fireball)
+
+                    while self.running and self.player.is_alive():
+                        self.main_menu()
+
+                    return 0
+                case "2":
+
+                    with Database("player_save.db") as db:
+                        result = db.fetch_all_save_files()
+
+                    if not result:
+                        print("You don't have any saved characters.")
+                    else:
+                        choices = {}
+                        for i, character in enumerate(result):
+                            choices[i + 1] = character
+                            print(f"{i + 1}. {character}")
+
+                        try:
+                            choice = input("Choice: ")
+
+                            with Database("player_save.db") as db:
+                                result = db.fetch_save_file(choices[int(choice)])
+
+                            self.player = Player(name=result["name"],
+                                                 hp=result["hp"],
+                                                 max_hp=result["max_hp"],
+                                                 mp=result["mp"],
+                                                 max_mp=result["max_mp"],
+                                                 experience=result["experience"],
+                                                 strength=result["strength"],
+                                                 )
+
+                            equipped_weapon = Weapon(name=result["equipped_weapon_name"]["name"],
+                                            damage=result["equipped_weapon_name"]["damage"],
+                                            rarity=result["equipped_weapon_name"]["rarity"],
+                                            durability=result["equipped_weapon_name"]["durability"])
+
+                            for item in result["inventory"]:
+                                if item["type"] == "Weapon":
+                                    weapon = Weapon(name=item["name"],
+                                                    damage=item["damage"],
+                                                    rarity=item["rarity"],
+                                                    durability=item["durability"])
+
+                                    self.player.inventory.items.append(weapon)
+
+                                    if weapon.name == equipped_weapon.name and weapon.damage == equipped_weapon.damage and weapon.durability == equipped_weapon.durability:
+                                        self.player.equipped_weapon = weapon
+
+                                elif item["type"] == "Potion":
+                                    self.player.inventory.items.append(Potion(name=item["name"],
+                                                                          rarity=item["rarity"],
+                                                                          heal_amount=item["heal_amount"])
+                                                                   )
+
+                            for spell in result["spells"]:
+                                spell_to_add = Spell(name=spell["name"],
+                                                     cost=spell["cost"],
+                                                     damage=spell["damage"])
+
+                                self.player.spells.append(spell_to_add)
+
+                            print("Character successfully loaded!")
+                            while self.running and self.player.is_alive():
+                                self.main_menu()
+                            return 0
+
+                        except:
+                            print("Something went wrong. Closing the game...")
+                            return 0
+
+
+
+                case _:
+                    print("Unknown command.")
 
     def main_menu(self):
         print("\n--- MAIN MENU ---")
@@ -40,6 +136,7 @@ class Game:
         print("3. Show Spellbook")
         print("4. Character Stats")
         print("5. Quit Game")
+
 
         choice = input("Choice: ")
 
@@ -60,6 +157,9 @@ class Game:
                     f"\n[Name: {p.name}]\n[HP: {p.hp}/{p.max_hp}]\n[MP: {p.mp}/{p.max_mp}]\n[XP: {p.experience}/100]\n[Weapon: {w}]")
 
             case "5":
+                with Database("player_save.db") as db:
+                    db.save_the_game(self.player)
+
                 print("Farewell, Tarnished!")
                 self.running = False
 

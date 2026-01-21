@@ -1,13 +1,13 @@
 class Character:
 
-    def __init__(self, name, hp, mp, strength):
+    def __init__(self, name, hp, mp, strength, max_hp=100, max_mp=50, experience=0):
         self.name = name
-        self.max_hp = hp
+        self.max_hp = max_hp
         self.hp = hp
-        self.max_mp = mp
+        self.max_mp = max_mp
         self.mp = mp
         self.strength = strength
-        self.experience = 0
+        self.experience = experience
 
     def is_alive(self):
         return self.hp > 0
