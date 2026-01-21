@@ -8,6 +8,7 @@ class Spell:
         self.cost = cost
         self.damage = damage
 
+
     def cast(self, caster, target):
         if caster.mp >= self.cost:
             caster.mp -= self.cost
@@ -18,3 +19,6 @@ class Spell:
         else:
             print(f" ! Not enough MP for {self.name}! (Cost: {self.cost}, You have: {caster.mp})")
             return False
+
+    def to_dict(self):
+        return {"name": self.name, "cost": self.cost, "damage": self.damage}

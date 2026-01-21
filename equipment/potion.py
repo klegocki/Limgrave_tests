@@ -7,6 +7,16 @@ class Potion(Item):
         super().__init__(name, rarity)
         self.heal_amount = heal_amount
 
+
     def use_potion(self, character):
         character.heal(self.heal_amount)
         print(f" > Drank {self.name}. Healed {self.heal_amount} HP.")
+
+
+    def to_dict(self):
+        return {
+            "type": "Potion",
+            "name": self.name,
+            "rarity": self.rarity,
+            "heal_amount": self.heal_amount
+        }

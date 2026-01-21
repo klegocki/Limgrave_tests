@@ -9,3 +9,11 @@ def item():
 
 def test_equipment_str(item):
     assert str(item) == f"Blade (Rarity: 5)"
+
+
+def test_to_dict(item):
+
+    result = item.to_dict()
+
+    assert isinstance(result, dict)
+    assert {"type": "Item", "name": "Blade", "rarity": 5} == result
