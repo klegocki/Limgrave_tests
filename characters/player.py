@@ -14,13 +14,20 @@ class Player(Character):
         self.spells = []
 
     def equip(self, weapon):
+
         if isinstance(weapon, Weapon):
+            if not weapon in self.inventory.items:
+                self.inventory.add_item(weapon)
+
             self.equipped_weapon = weapon
             print(f" > Equipped: {weapon.name}")
 
     def learn_spell(self, spell):
-        self.spells.append(spell)
-        print(f" + Learned spell: {spell.name}")
+        if not spell in self.spells:
+            self.spells.append(spell)
+            print(f" + Learned spell: {spell.name}")
+        else:
+            print(f" > Spell already taught: {spell.name}")
 
     def show_spells(self):
         if not self.spells:
