@@ -25,7 +25,7 @@ class Game:
         sword = Weapon("Rusted Sword", 10, 6, durability=20)
         self.player.inventory.add_item(sword)
         self.player.equip(sword)
-        self.player.inventory.add_item(Potion("Flask of Crimson Tears", 5, 30))
+        self.player.inventory.add_item(Potion("Flask of Crimson Tears", 1, 30))
 
         fireball = Spell("Fireball", cost=15, damage=25)
         self.player.learn_spell(fireball)

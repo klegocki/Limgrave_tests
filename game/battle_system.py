@@ -58,13 +58,13 @@ class BattleSystem:
                     if random.choice([True, False]):
 
                         sword_type = random.choice([
-                            ("Broadsword", 10, 10, 30),
-                            ("Greatsword", 10, 25, 25),
-                            ("Bloodhound's curved sword", 10, 20, 20),
-                            ("Uchikatana", 10, 15, 20),
-                            ("Axe", 10, 12, 20)
+                            ("Broadsword", 3, 10, 30),
+                            ("Greatsword", 5, 25, 25),
+                            ("Bloodhound's curved sword", 6, 20, 20),
+                            ("Uchikatana", 4, 15, 20),
+                            ("Axe", 2, 12, 20)
                         ])
-                        sword = Weapon(sword_type[0], sword_type[1], sword_type[2], durability=sword_type[3])
+                        sword = Weapon(sword_type[0], sword_type[1], sword_type[2], sword_type[3])
                         player.inventory.add_item(sword)
                         print(f"You acquired: {sword.name}!")
 

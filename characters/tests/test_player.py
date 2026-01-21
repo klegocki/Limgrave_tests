@@ -165,9 +165,9 @@ def test_check_weapon_status_no_durability_and_weapon(player, mocker, capsys):
     captured = capsys.readouterr()
 
     assert player.equipped_weapon.name == "Rusted Sword"
-    assert player.equipped_weapon.durability == 15
-    assert player.equipped_weapon.damage == 5
-    assert player.equipped_weapon.value == 0
+    assert player.equipped_weapon.durability == 20
+    assert player.equipped_weapon.damage == 6
+    assert player.equipped_weapon.rarity == 1
 
     assert "> You have no weapons left! You found a backup Rusted Sword." in captured.out.strip()
     assert "+ Added to inventory: Rusted Sword" in captured.out.strip()

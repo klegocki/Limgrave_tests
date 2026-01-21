@@ -3,8 +3,8 @@ from equipment.item import Item
 
 class Weapon(Item):
 
-    def __init__(self, name, value, damage, durability):
-        super().__init__(name, value)
+    def __init__(self, name, rarity, damage, durability):
+        super().__init__(name, rarity)
         self.damage = damage
         self.durability = durability
 

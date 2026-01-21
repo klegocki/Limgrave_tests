@@ -48,7 +48,7 @@ class Player(Character):
                 self.equip(new_weapon)
             else:
                 print(" > You have no weapons left! You found a backup Rusted Sword.")
-                backup = Weapon("Rusted Sword", 0, 5, 15)
+                backup = Weapon("Rusted Sword", 1, 6, 20)
                 self.inventory.add_item(backup)
                 self.equip(backup)
 

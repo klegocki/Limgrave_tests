@@ -8,4 +8,4 @@ def item():
 
 
 def test_equipment_str(item):
-    assert str(item) == f"Blade (Value: 5)"
+    assert str(item) == f"Blade (Rarity: 5)"

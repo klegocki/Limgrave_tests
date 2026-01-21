@@ -3,8 +3,8 @@ from equipment.item import Item
 
 class Potion(Item):
 
-    def __init__(self, name, value, heal_amount):
-        super().__init__(name, value)
+    def __init__(self, name, rarity, heal_amount):
+        super().__init__(name, rarity)
         self.heal_amount = heal_amount
 
     def use_potion(self, character):

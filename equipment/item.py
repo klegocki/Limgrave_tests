@@ -1,8 +1,8 @@
 class Item:
 
-    def __init__(self, name, value):
+    def __init__(self, name, rarity):
         self.name = name
-        self.value = value
+        self.rarity = rarity
 
     def __str__(self):
-        return f"{self.name} (Value: {self.value})"
+        return f"{self.name} (Rarity: {self.rarity})"
