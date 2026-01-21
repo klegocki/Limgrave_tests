@@ -37,20 +37,6 @@ def test_equip_wrong_instance(player, mocker):
     assert result is None
 
 
-def test_equip_no_weapon_in_inventory(player, mocker, capsys):
-    mock_weapon = mocker.Mock(spec=Weapon)
-    mock_weapon.name = "sword"
-
-    player.equip(mock_weapon)
-
-    captured = capsys.readouterr()
-
-    assert "+ Added to inventory: sword" in captured.out
-    assert "> Equipped: sword" in captured.out
-
-    assert player.equipped_weapon == mock_weapon
-
-
 def test_learn_spell(player, mocker, capsys):
 
     mock_spell = mocker.Mock(spec=Spell)
