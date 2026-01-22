@@ -35,7 +35,7 @@ class Database:
             "strength": player.strength,
             "inventory": [item.to_dict() for item in player.inventory.items],
             "spells": [spell.to_dict() for spell in player.spells],
-            "equipped_weapon_name": player.equipped_weapon.to_dict() if player.equipped_weapon else None
+            "equipped_weapon": player.equipped_weapon.to_dict() if player.equipped_weapon else None
         }
 
         json_data = json.dumps(player_data)

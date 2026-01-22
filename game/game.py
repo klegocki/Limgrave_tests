@@ -85,10 +85,10 @@ class Game:
                                                  strength=result["strength"],
                                                  )
 
-                            equipped_weapon = Weapon(name=result["equipped_weapon_name"]["name"],
-                                            damage=result["equipped_weapon_name"]["damage"],
-                                            rarity=result["equipped_weapon_name"]["rarity"],
-                                            durability=result["equipped_weapon_name"]["durability"])
+                            equipped_weapon = Weapon(name=result["equipped_weapon"]["name"],
+                                            damage=result["equipped_weapon"]["damage"],
+                                            rarity=result["equipped_weapon"]["rarity"],
+                                            durability=result["equipped_weapon"]["durability"])
 
                             for item in result["inventory"]:
                                 if item["type"] == "Weapon":
