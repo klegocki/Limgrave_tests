@@ -18,8 +18,8 @@ class Game:
         self.running = True
         self.did_boss_appear = False
 
-    def start(self):
 
+    def start(self):
         with Database("player_save.db") as db:
             db.create_table()
 
@@ -45,7 +45,7 @@ class Game:
 
                     self.player = Player(name)
 
-                    sword = Weapon("Rusted Sword", 10, 6, durability=20)
+                    sword = Weapon("Rusted Sword", 1, 6, durability=20)
                     self.player.inventory.add_item(sword)
                     self.player.equip(sword)
                     self.player.inventory.add_item(Potion("Flask of Crimson Tears", 1, 30))
@@ -124,10 +124,9 @@ class Game:
                             print("Something went wrong. Closing the game...")
                             return 0
 
-
-
                 case _:
                     print("Unknown command.")
+
 
     def main_menu(self):
         print("\n--- MAIN MENU ---")
@@ -154,7 +153,11 @@ class Game:
                 p = self.player
                 w = p.equipped_weapon.name if p.equipped_weapon else "None"
                 print(
-                    f"\n[Name: {p.name}]\n[HP: {p.hp}/{p.max_hp}]\n[MP: {p.mp}/{p.max_mp}]\n[XP: {p.experience}/100]\n[Weapon: {w}]")
+                    f"\n[Name: {p.name}]\n"
+                    f"[HP: {p.hp}/{p.max_hp}]\n"
+                    f"[MP: {p.mp}/{p.max_mp}]\n"
+                    f"[XP: {p.experience}/100]\n"
+                    f"[Weapon: {w}]")
 
             case "5":
                 with Database("player_save.db") as db:
@@ -165,6 +168,7 @@ class Game:
 
             case _:
                 print("Unknown command.")
+
 
     def explore(self):
         print("\nYou venture into the mist...")
@@ -198,8 +202,10 @@ class Game:
                 self.BattleSystem.start_battle(self.player, enemy)
         else:
             print("You found a Site of Grace. You rest for a moment.")
+
             if random.randint(1, 10) > 7:
                 spell_chosen = False
+
                 while len(self.player.spells) < 6 and not spell_chosen :
                     spell_to_add = random.choice([
                         Spell("Glintstone Pebble", 5, 12),
@@ -229,6 +235,7 @@ class Game:
             if not crimson_flask_in_inventory:
                 self.player.inventory.add_item(Potion("Flask of Crimson Tears", 5, 30))
 
+
     def manage_inventory(self):
 
         self.player.inventory.show()
@@ -241,12 +248,15 @@ class Game:
                     item.use_potion(self.player)
                     self.player.inventory.remove_item(item)
                     return
+
             print("No potions!")
 
         elif dec.lower() == 'e':
             idx = int(input("Item number: ")) - 1
+
             if 0 <= idx < len(self.player.inventory.items):
                 if not self.player.equipped_weapon == self.player.inventory.items[idx] and not isinstance(self.player.inventory.items[idx], Potion):
                     self.player.equip(self.player.inventory.items[idx])
+
                 else:
                     print("You can't equip that or you already equipped.!")
