@@ -11,11 +11,11 @@ class BattleSystem:
         self.turn_count = 0
 
     def start_battle(self, player, enemy):
-        self.turn_count = 0
+        self.turn_count = 1
         print(f"\n--- BATTLE STARTED: {player.name} vs {enemy.name} ---")
 
         while player.is_alive() and enemy.is_alive():
-            self.turn_count += 1
+
             print(f"\n--- Turn {self.turn_count} ---")
             print(f"[{player.name}: HP {player.hp}/{player.max_hp} | MP {player.mp}/{player.max_mp}]")
             print(f"[Enemy: {enemy.name} HP {enemy.hp}]")
@@ -66,6 +66,7 @@ class BattleSystem:
                 if enemy.is_alive():
                     time.sleep(0.5)
                     enemy.perform_action(player)
+                    self.turn_count += 1
 
                 else:
                     print(f"\n *** VICTORY! You defeated {enemy.name}! ***")
