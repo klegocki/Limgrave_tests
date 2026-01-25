@@ -9,12 +9,12 @@ def player():
     return Player("hero")
 
 @pytest.fixture
-def db():
+def database():
     test_db_name = "test_game.db"
     database = Database(test_db_name)
 
-    with database as d:
-        d.create_table()
+    with database as db:
+        db.create_table()
 
     yield database
 
@@ -22,55 +22,55 @@ def db():
         os.remove(test_db_name)
 
 
-def test_create_table(db):
-    with db as d:
-        d.create_table()
-        d.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='players'")
-        result = d.cursor.fetchone()
+def test_create_table(database):
+    with database as db:
+        db.create_table()
+        db.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='players'")
+        result = db.cursor.fetchone()
 
     assert result is not None
     assert result[0] == "players"
 
 
-def test_save_the_game(db, player):
+def test_save_the_game(database, player):
 
-    with db as d:
-        d.save_the_game(player)
-        d.cursor.execute("SELECT name FROM players WHERE name='hero'")
-        result = d.cursor.fetchone()
+    with database as db:
+        db.save_the_game(player)
+        db.cursor.execute("SELECT name FROM players WHERE name='hero'")
+        result = db.cursor.fetchone()
 
     assert result is not None
     assert result[0] == "hero"
 
 
-def test_delete_save_file(db, player):
-    with db as d:
-        d.save_the_game(player)
+def test_delete_save_file(database, player):
+    with database as db:
+        db.save_the_game(player)
 
-    with db as d:
-        d.delete_save_file(player.name)
-        d.cursor.execute("SELECT name FROM players WHERE name='hero'")
-        result = d.cursor.fetchone()
-
-    assert result is None
-
-
-def test_delete_save_file_no_player(db, player):
-
-    with db as d:
-        d.delete_save_file(player.name)
-        d.cursor.execute("SELECT name FROM players WHERE name='hero'")
-        result = d.cursor.fetchone()
+    with database as db:
+        db.delete_save_file(player.name)
+        db.cursor.execute("SELECT name FROM players WHERE name='hero'")
+        result = db.cursor.fetchone()
 
     assert result is None
 
 
-def test_fetch_save_file_success(db, player):
-    with db as d:
-        d.save_the_game(player)
+def test_delete_save_file_no_player(database, player):
 
-    with db as d:
-        result = d.fetch_save_file(player.name)
+    with database as db:
+        db.delete_save_file(player.name)
+        db.cursor.execute("SELECT name FROM players WHERE name='hero'")
+        result = db.cursor.fetchone()
+
+    assert result is None
+
+
+def test_fetch_save_file_success(database, player):
+    with database as db:
+        db.save_the_game(player)
+
+    with database as db:
+        result = db.fetch_save_file(player.name)
 
     assert result is not None
     assert isinstance(result, dict)
@@ -83,30 +83,30 @@ def test_fetch_save_file_success(db, player):
     assert result["experience"] == 0
 
 
-def test_fetch_save_file_not_found(db):
+def test_fetch_save_file_not_found(database):
 
-    with db as d:
+    with database as d:
         result = d.fetch_save_file("UnknownHero")
 
     assert result is None
 
-def test_fetch_all_save_files(db, player):
-    with db as d:
-        d.save_the_game(player)
+def test_fetch_all_save_files(database, player):
+    with database as db:
+        db.save_the_game(player)
         player.name = "swordsman"
-        d.save_the_game(player)
+        db.save_the_game(player)
 
-    with db as d:
-        result = d.fetch_all_save_files()
+    with database as db:
+        result = db.fetch_all_save_files()
 
     assert len(result) == 2
     assert "hero" in result
     assert "swordsman" in result
 
 
-def test_fetch_all_save_files_file_not_found(db):
+def test_fetch_all_save_files_file_not_found(database):
 
-    with db as d:
-        result = d.fetch_all_save_files()
+    with database as db:
+        result = db.fetch_all_save_files()
 
     assert result == []

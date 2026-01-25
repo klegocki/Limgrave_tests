@@ -34,16 +34,31 @@ class BattleSystem:
                 case '2':
                     if not player.spells:
                         print("You don't know any spells!")
+
                     else:
                         player.show_spells()
-                        try:
-                            s_idx = int(input("Select spell (0 to cancel): "))
-                            if 0 < s_idx <= len(player.spells):
-                                success = player.spells[s_idx - 1].cast(player, enemy)
-                                if success:
-                                    turn_ended = True
-                        except ValueError:
-                            print("Invalid selection.")
+
+                        while True:
+                            try:
+                                s_idx = int(input("Select spell (0 to cancel): "))
+
+                                if s_idx == 0:
+                                    print("Selection cancelled.")
+                                    break
+
+                                if 1 <= s_idx <= len(player.spells):
+                                    success = player.spells[s_idx - 1].cast(player, enemy)
+                                    if success:
+                                        turn_ended = True
+                                        break
+
+                                else:
+                                    print(f"Invalid number! Choose between available spells.")
+
+
+                            except ValueError:
+                                print("Invalid selection.")
+
                 case _:
                     print("Invalid command.")
 
@@ -51,6 +66,7 @@ class BattleSystem:
                 if enemy.is_alive():
                     time.sleep(0.5)
                     enemy.perform_action(player)
+
                 else:
                     print(f"\n *** VICTORY! You defeated {enemy.name}! ***")
                     player.gain_experience(enemy.exp_reward)
@@ -77,4 +93,5 @@ class BattleSystem:
 
                 print("\n *** YOU DIED ***")
                 return False
+
         return False
