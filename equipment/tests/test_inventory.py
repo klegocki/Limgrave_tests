@@ -9,8 +9,8 @@ from equipment.weapon import Weapon
 def inventory():
     return Inventory()
 
-def test_add_item(inventory, mocker, capsys):
 
+def test_add_item(inventory, mocker, capsys):
     mock_item = mocker.Mock(spec=Item)
     mock_item.name = "Mana potion"
 
@@ -19,6 +19,7 @@ def test_add_item(inventory, mocker, capsys):
 
     assert inventory.items[0] == mock_item
     assert captured.out.strip() == "+ Added to inventory: Mana potion"
+
 
 def test_add_item_copy(inventory, mocker, capsys):
     mock_item = mocker.Mock(spec=Item)
@@ -31,8 +32,8 @@ def test_add_item_copy(inventory, mocker, capsys):
     assert len(inventory.items) == 1
     assert captured.out.strip() == "Item Mana potion is already in your inventory"
 
-def test_remove_existing_item(inventory, mocker):
 
+def test_remove_existing_item(inventory, mocker):
     mock_item = mocker.Mock(spec=Item)
     mock_item.name = "Mana potion"
 
@@ -42,8 +43,8 @@ def test_remove_existing_item(inventory, mocker):
 
     assert not inventory.items
 
-def test_remove_non_existing_item(inventory, mocker,capsys):
 
+def test_remove_non_existing_item(inventory, mocker,capsys):
     mock_item_in_inv = mocker.Mock(spec=Item)
     mock_item_in_inv.name = "Mana potion"
 
@@ -59,8 +60,8 @@ def test_remove_non_existing_item(inventory, mocker,capsys):
     assert inventory.items[0] == mock_item_in_inv
     assert captured.out.strip() == "There is no Health potion in your inventory"
 
-def test_get_any_weapon(inventory, mocker):
 
+def test_get_any_weapon(inventory, mocker):
     mock_weapon = mocker.Mock(spec=Weapon)
     mock_weapon.durability = 1
 
@@ -70,8 +71,8 @@ def test_get_any_weapon(inventory, mocker):
 
     assert result == mock_weapon
 
-def test_get_any_weapon_without_weapon(inventory, mocker):
 
+def test_get_any_weapon_without_weapon(inventory, mocker):
     mock_item = mocker.Mock(spec=Item)
     mock_item.name = "Mana potion"
 
@@ -81,8 +82,8 @@ def test_get_any_weapon_without_weapon(inventory, mocker):
 
     assert result is None
 
-def test_get_any_weapon_no_durability(inventory, mocker):
 
+def test_get_any_weapon_no_durability(inventory, mocker):
     mock_weapon = mocker.Mock(spec=Weapon)
     mock_weapon.durability = 0
 
@@ -92,8 +93,8 @@ def test_get_any_weapon_no_durability(inventory, mocker):
 
     assert result is None
 
-def test_show_empty_inventory(inventory, capsys):
 
+def test_show_empty_inventory(inventory, capsys):
     inventory.items = []
     inventory.show()
 
@@ -104,7 +105,6 @@ def test_show_empty_inventory(inventory, capsys):
 
 
 def test_show_inventory_with_items(inventory, capsys):
-
     inventory.items = ["Sword", "Shield"]
     inventory.show()
 

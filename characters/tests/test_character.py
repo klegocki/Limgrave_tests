@@ -15,7 +15,6 @@ def test_is_not_alive(character):
     assert not character.is_alive()
 
 def test_take_damage(character, capsys):
-
     character.take_damage(50)
     capture = capsys.readouterr()
 
@@ -23,7 +22,6 @@ def test_take_damage(character, capsys):
     assert capture.out.strip() == "- hero takes 50 damage! (HP: 50/100)"
 
 def test_take_damage_exact_kill(character, capsys):
-
     character.take_damage(100)
     capture = capsys.readouterr()
 
@@ -31,7 +29,6 @@ def test_take_damage_exact_kill(character, capsys):
     assert capture.out.strip() == "- hero takes 100 damage! (HP: 0/100)"
 
 def test_take_damage_overkill(character, capsys):
-
     character.take_damage(1000)
     capture = capsys.readouterr()
 
@@ -39,30 +36,26 @@ def test_take_damage_overkill(character, capsys):
     assert capture.out.strip() == "- hero takes 1000 damage! (HP: 0/100)"
 
 def test_heal(character):
-
     character.hp = 20
     character.heal(50)
 
     assert character.hp == 70
 
 def test_over_heal(character):
-
     character.hp = 50
     character.heal(1000)
 
     assert character.hp == 100
 
 def test_heal_negative_value(character, capsys):
-
     character.hp = 50
     character.heal(-50)
     capture = capsys.readouterr()
 
-    assert capture.out.strip() == "Critical error: can not heal with negative value!"
+    assert capture.out.strip() == "Critical error: cannot heal with negative value!"
     assert character.hp == 50
 
 def test_gain_experience(character, capsys):
-
     character.gain_experience(50)
     capture = capsys.readouterr()
 
@@ -71,7 +64,6 @@ def test_gain_experience(character, capsys):
 
 
 def test_gain_experience_level_up(character, capsys):
-
     character.gain_experience(120)
     capture = capsys.readouterr()
 

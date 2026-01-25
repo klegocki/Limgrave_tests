@@ -1,4 +1,3 @@
-import os
 import pytest
 
 from characters.enemy import Enemy
@@ -6,12 +5,12 @@ from characters.player import Player
 from equipment.inventory import Inventory
 from equipment.spell import Spell
 from game.battle_system import BattleSystem
-from game.database import Database
 
 
 @pytest.fixture
 def battle_system():
     return BattleSystem()
+
 
 @pytest.fixture
 def mock_player(mocker):
@@ -26,6 +25,7 @@ def mock_player(mocker):
 
     return mock_player
 
+
 @pytest.fixture
 def mock_enemy(mocker):
     mock_enemy = mocker.Mock(spec=Enemy)
@@ -34,6 +34,7 @@ def mock_enemy(mocker):
     mock_enemy.exp_reward = 50
 
     return mock_enemy
+
 
 def test_start_battle_victory_by_attack(battle_system, mocker, capsys, mock_player, mock_enemy):
     mock_enemy.hp = 1
@@ -129,7 +130,6 @@ def test_start_battle_wrong_spell_selection(battle_system, mocker, capsys, mock_
 
 
 def test_start_battle_enemy_turn(battle_system, mocker, mock_player, mock_enemy):
-
     mocker.patch('builtins.input', side_effect=['1'])
     mocker.patch('time.sleep', return_value=None)
 

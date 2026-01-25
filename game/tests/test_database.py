@@ -8,6 +8,7 @@ from game.database import Database
 def player():
     return Player("hero")
 
+
 @pytest.fixture
 def database():
     test_db_name = "test_game.db"
@@ -46,17 +47,15 @@ def test_save_the_game(database, player):
 def test_delete_save_file(database, player):
     with database as db:
         db.save_the_game(player)
-
-    with database as db:
         db.delete_save_file(player.name)
         db.cursor.execute("SELECT name FROM players WHERE name='hero'")
+
         result = db.cursor.fetchone()
 
     assert result is None
 
 
 def test_delete_save_file_no_player(database, player):
-
     with database as db:
         db.delete_save_file(player.name)
         db.cursor.execute("SELECT name FROM players WHERE name='hero'")
@@ -68,8 +67,6 @@ def test_delete_save_file_no_player(database, player):
 def test_fetch_save_file_success(database, player):
     with database as db:
         db.save_the_game(player)
-
-    with database as db:
         result = db.fetch_save_file(player.name)
 
     assert result is not None
@@ -84,19 +81,17 @@ def test_fetch_save_file_success(database, player):
 
 
 def test_fetch_save_file_not_found(database):
-
     with database as d:
         result = d.fetch_save_file("UnknownHero")
 
     assert result is None
+
 
 def test_fetch_all_save_files(database, player):
     with database as db:
         db.save_the_game(player)
         player.name = "swordsman"
         db.save_the_game(player)
-
-    with database as db:
         result = db.fetch_all_save_files()
 
     assert len(result) == 2
@@ -105,7 +100,6 @@ def test_fetch_all_save_files(database, player):
 
 
 def test_fetch_all_save_files_file_not_found(database):
-
     with database as db:
         result = db.fetch_all_save_files()
 

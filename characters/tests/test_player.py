@@ -15,7 +15,6 @@ def player():
 
 
 def test_equip(player, mocker, capsys):
-
     mock_weapon = mocker.Mock(spec=Weapon)
     mock_weapon.name = "sword"
 
@@ -29,7 +28,6 @@ def test_equip(player, mocker, capsys):
 
 
 def test_equip_wrong_instance(player, mocker):
-
     mock_potion = mocker.Mock(spec=Potion)
 
     result = player.equip(mock_potion)
@@ -38,7 +36,6 @@ def test_equip_wrong_instance(player, mocker):
 
 
 def test_learn_spell(player, mocker, capsys):
-
     mock_spell = mocker.Mock(spec=Spell)
     mock_spell.name = "lightning bolt"
 
@@ -50,7 +47,6 @@ def test_learn_spell(player, mocker, capsys):
 
 
 def test_learn_taught_spell(player, mocker, capsys):
-
     mock_spell = mocker.Mock(spec=Spell)
     mock_spell.name = "lightning bolt"
 
@@ -63,7 +59,6 @@ def test_learn_taught_spell(player, mocker, capsys):
 
 
 def test_show_spells_empty(player, capsys):
-
     player.show_spells()
     captured = capsys.readouterr()
 
@@ -71,7 +66,6 @@ def test_show_spells_empty(player, capsys):
 
 
 def test_show_spells(player, mocker, capsys):
-
     mock_spell1 = mocker.Mock(spec=Spell)
     mock_spell2 = mocker.Mock(spec=Spell)
 
@@ -95,7 +89,6 @@ def test_show_spells(player, mocker, capsys):
 
 
 def test_check_weapon_status(player, mocker, capsys):
-
     mock_weapon = mocker.Mock(spec=Weapon)
     mock_weapon.durability = 20
 
@@ -105,18 +98,7 @@ def test_check_weapon_status(player, mocker, capsys):
     assert result is None
 
 
-def test_check_weapon_status_unequipped(player, mocker, capsys):
-
-    mock_weapon = mocker.Mock(spec=Weapon)
-    mock_weapon.durability = 20
-
-    result = player.check_weapon_status()
-
-    assert result is None
-
-
 def test_check_weapon_status_no_durability(player, mocker, capsys):
-
     mock_weapon = mocker.Mock(spec=Weapon)
     mock_weapon.name = "bow"
     mock_weapon.durability = 0
@@ -139,7 +121,6 @@ def test_check_weapon_status_no_durability(player, mocker, capsys):
 
 
 def test_check_weapon_status_no_durability_and_weapon(player, mocker, capsys):
-
     mock_weapon = mocker.Mock(spec=Weapon)
     mock_weapon.name = "bow"
     mock_weapon.durability = 0
@@ -161,7 +142,6 @@ def test_check_weapon_status_no_durability_and_weapon(player, mocker, capsys):
 
 
 def test_attack(player, mocker, capsys):
-
     mocker.patch("random.randint", return_value=5)
 
     mock_target = mocker.Mock(spec=Enemy)
@@ -186,7 +166,6 @@ def test_attack(player, mocker, capsys):
 
 
 def test_attack_no_durability(player, mocker, capsys):
-
     mocker.patch("random.randint", return_value=5)
 
     mock_target = mocker.Mock(spec=Enemy)

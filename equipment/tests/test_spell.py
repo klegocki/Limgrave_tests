@@ -11,7 +11,6 @@ def spell():
 
 
 def test_cast_success(mocker, spell, capsys):
-
     mock_caster = mocker.Mock(spec=Player)
     mock_caster.name = "player"
     mock_caster.mp = 20
@@ -29,7 +28,6 @@ def test_cast_success(mocker, spell, capsys):
 
 
 def test_cast_failure(mocker, spell, capsys):
-
     mock_caster = mocker.Mock(spec=Player)
     mock_caster.name = "player"
     mock_caster.mp = 19
@@ -45,7 +43,6 @@ def test_cast_failure(mocker, spell, capsys):
 
 
 def test_to_dict(spell):
-
     result = spell.to_dict()
 
     assert isinstance(result, dict)

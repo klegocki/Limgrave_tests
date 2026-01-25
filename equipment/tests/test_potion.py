@@ -8,6 +8,7 @@ from equipment.potion import Potion
 def potion():
     return Potion("Heal flask", 1, 30)
 
+
 def test_use_potion(mocker, potion, capsys):
     mock_player = mocker.Mock(spec=Player)
 
@@ -17,8 +18,8 @@ def test_use_potion(mocker, potion, capsys):
     assert captured.out.strip() == "> Drank Heal flask. Healed 30 HP."
     mock_player.heal.assert_called_once_with(30)
 
-def test_to_dict(potion):
 
+def test_to_dict(potion):
     result = potion.to_dict()
 
     assert isinstance(result, dict)

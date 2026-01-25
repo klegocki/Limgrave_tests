@@ -12,7 +12,6 @@ def test_equipment_str(item):
 
 
 def test_to_dict(item):
-
     result = item.to_dict()
 
     assert isinstance(result, dict)

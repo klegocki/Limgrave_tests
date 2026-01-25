@@ -12,7 +12,6 @@ def enemy():
 
 
 def test_perform_action(enemy, mocker, capsys):
-
     mock_player = mocker.Mock(spec=Player)
 
     mocker.patch("random.randint", return_value=5)

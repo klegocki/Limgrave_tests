@@ -17,8 +17,8 @@ def test_decrease_durability(weapon):
 
     assert weapon.durability == 9
 
-def test_to_dict(weapon):
 
+def test_to_dict(weapon):
     result = weapon.to_dict()
 
     assert isinstance(result, dict)
