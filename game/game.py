@@ -58,71 +58,78 @@ class Game:
 
                     return 0
                 case "2":
+                    while True:
+                        with Database("player_save.db") as db:
+                            result = db.fetch_all_save_files()
 
-                    with Database("player_save.db") as db:
-                        result = db.fetch_all_save_files()
+                        if not result:
+                            print("You don't have any saved characters.")
+                            break
 
-                    if not result:
-                        print("You don't have any saved characters.")
-                    else:
-                        choices = {}
-                        for i, character in enumerate(result):
-                            choices[i + 1] = character
-                            print(f"{i + 1}. {character}")
+                        else:
+                            choices = {}
+                            for i, character in enumerate(result):
+                                choices[i + 1] = character
+                                print(f"{i + 1}. {character}")
 
-                        try:
-                            choice = input("Choice: ")
+                            try:
+                                choice = int(input("Choice: "))
 
-                            with Database("player_save.db") as db:
-                                result = db.fetch_save_file(choices[int(choice)])
+                                with Database("player_save.db") as db:
+                                    result = db.fetch_save_file(choices[choice])
 
-                            self.player = Player(name=result["name"],
-                                                 hp=result["hp"],
-                                                 max_hp=result["max_hp"],
-                                                 mp=result["mp"],
-                                                 max_mp=result["max_mp"],
-                                                 experience=result["experience"],
-                                                 strength=result["strength"],
-                                                 )
+                                self.player = Player(name=result["name"],
+                                                     hp=result["hp"],
+                                                     max_hp=result["max_hp"],
+                                                     mp=result["mp"],
+                                                     max_mp=result["max_mp"],
+                                                     experience=result["experience"],
+                                                     strength=result["strength"],
+                                                     )
 
-                            equipped_weapon = Weapon(name=result["equipped_weapon"]["name"],
-                                            damage=result["equipped_weapon"]["damage"],
-                                            rarity=result["equipped_weapon"]["rarity"],
-                                            durability=result["equipped_weapon"]["durability"])
+                                equipped_weapon = Weapon(name=result["equipped_weapon"]["name"],
+                                                damage=result["equipped_weapon"]["damage"],
+                                                rarity=result["equipped_weapon"]["rarity"],
+                                                durability=result["equipped_weapon"]["durability"])
 
-                            for item in result["inventory"]:
-                                if item["type"] == "Weapon":
-                                    weapon = Weapon(name=item["name"],
-                                                    damage=item["damage"],
-                                                    rarity=item["rarity"],
-                                                    durability=item["durability"])
+                                for item in result["inventory"]:
+                                    if item["type"] == "Weapon":
+                                        weapon = Weapon(name=item["name"],
+                                                        damage=item["damage"],
+                                                        rarity=item["rarity"],
+                                                        durability=item["durability"])
 
-                                    self.player.inventory.items.append(weapon)
+                                        self.player.inventory.items.append(weapon)
 
-                                    if weapon.name == equipped_weapon.name and weapon.damage == equipped_weapon.damage and weapon.durability == equipped_weapon.durability:
-                                        self.player.equipped_weapon = weapon
+                                        if weapon.name == equipped_weapon.name and weapon.damage == equipped_weapon.damage and weapon.durability == equipped_weapon.durability:
+                                            self.player.equipped_weapon = weapon
 
-                                elif item["type"] == "Potion":
-                                    self.player.inventory.items.append(Potion(name=item["name"],
-                                                                          rarity=item["rarity"],
-                                                                          heal_amount=item["heal_amount"])
-                                                                   )
+                                    elif item["type"] == "Potion":
+                                        self.player.inventory.items.append(Potion(name=item["name"],
+                                                                              rarity=item["rarity"],
+                                                                              heal_amount=item["heal_amount"])
+                                                                       )
 
-                            for spell in result["spells"]:
-                                spell_to_add = Spell(name=spell["name"],
-                                                     cost=spell["cost"],
-                                                     damage=spell["damage"])
+                                for spell in result["spells"]:
+                                    spell_to_add = Spell(name=spell["name"],
+                                                         cost=spell["cost"],
+                                                         damage=spell["damage"])
 
-                                self.player.spells.append(spell_to_add)
+                                    self.player.spells.append(spell_to_add)
 
-                            print("Character successfully loaded!")
-                            while self.running and self.player.is_alive():
-                                self.main_menu()
-                            return 0
+                                print("Character successfully loaded!")
+                                while self.running and self.player.is_alive():
+                                    self.main_menu()
+                                return 0
 
-                        except:
-                            print("Something went wrong. Closing the game...")
-                            return 0
+                            except KeyError:
+                                print("tu")
+                                print("Save file does not exist. Pick a proper one.")
+
+                            except ValueError:
+                                print("Save file does not exist. Pick a proper one.")
+
+
 
                 case _:
                     print("Unknown command.")
@@ -233,7 +240,7 @@ class Game:
                     break
 
             if not crimson_flask_in_inventory:
-                self.player.inventory.add_item(Potion("Flask of Crimson Tears", 5, 30))
+                self.player.inventory.add_item(Potion("Flask of Crimson Tears", 1, 30))
 
 
     def manage_inventory(self):

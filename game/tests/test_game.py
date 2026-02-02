@@ -44,7 +44,7 @@ def game_context(mocker):
     player.max_mp = 50
     player.spells = []
 
-    player.inventory = mocker.Mock()
+    player.inventory = mocker.Mock(spec=Inventory)
     player.inventory.items = []
 
     game.player = player
@@ -55,7 +55,6 @@ def game_context(mocker):
 
 
 def test_start_new_game(game, mocker):
-
     mock_db = mocker.patch('game.game.Database')
     mock_db_instance = mock_db.return_value.__enter__.return_value
     mock_db_instance.fetch_all_save_files.return_value = []
@@ -73,7 +72,6 @@ def test_start_new_game(game, mocker):
 
 
 def test_start_new_game_player_exists(game, mocker, capsys):
-
     mock_db = mocker.patch('game.game.Database')
     mock_db_instance = mock_db.return_value.__enter__.return_value
     mock_db_instance.fetch_all_save_files.return_value = "hero"
@@ -88,7 +86,6 @@ def test_start_new_game_player_exists(game, mocker, capsys):
 
 
 def test_start_new_game_unknown_command(game, mocker, capsys):
-
     mock_db = mocker.patch('game.game.Database')
     mock_db_instance = mock_db.return_value.__enter__.return_value
     mock_db_instance.fetch_all_save_files.return_value = "hero"
@@ -148,6 +145,62 @@ def test_start_load_game_failure(game, capsys, mocker):
     captured = capsys.readouterr()
 
     assert "You don't have any saved characters." in captured.out.strip()
+
+
+def test_start_load_game_value_error(game, capsys, mocker):
+    fake_save_data = {
+        "name": "LoadedHero",
+        "hp": 80, "max_hp": 100, "mp": 20, "max_mp": 50,
+        "experience": 50, "strength": 10,
+        "equipped_weapon": {"name": "Rusted Sword", "damage": 6, "rarity": 1, "durability": 20},
+        "inventory": [
+            {"type": "Weapon", "name": "Rusted Sword", "damage": 6, "rarity": 1, "durability": 20},
+            {"type": "Potion", "name": "Flask of Crimson Tears", "rarity": 1, "heal_amount": 30}
+        ],
+        "spells": [{"name": "Fireball", "cost": 15, "damage": 25}]
+    }
+
+    mock_db = mocker.patch('game.game.Database')
+    mock_db_instance = mock_db.return_value.__enter__.return_value
+
+    mock_db_instance.fetch_all_save_files.return_value = ["LoadedHero"]
+    mock_db_instance.fetch_save_file.return_value = fake_save_data
+
+    mocker.patch('builtins.input', side_effect=['2', 'asd' ,'1', '5'])
+    mocker.patch('time.sleep', return_value=None)
+
+    game.start()
+    captured = capsys.readouterr()
+
+    assert "Save file does not exist. Pick a proper one." in captured.out.strip()
+
+
+def test_start_load_game_key_error(game, capsys, mocker):
+    fake_save_data = {
+        "name": "LoadedHero",
+        "hp": 80, "max_hp": 100, "mp": 20, "max_mp": 50,
+        "experience": 50, "strength": 10,
+        "equipped_weapon": {"name": "Rusted Sword", "damage": 6, "rarity": 1, "durability": 20},
+        "inventory": [
+            {"type": "Weapon", "name": "Rusted Sword", "damage": 6, "rarity": 1, "durability": 20},
+            {"type": "Potion", "name": "Flask of Crimson Tears", "rarity": 1, "heal_amount": 30}
+        ],
+        "spells": [{"name": "Fireball", "cost": 15, "damage": 25}]
+    }
+
+    mock_db = mocker.patch('game.game.Database')
+    mock_db_instance = mock_db.return_value.__enter__.return_value
+
+    mock_db_instance.fetch_all_save_files.return_value = ["LoadedHero"]
+    mock_db_instance.fetch_save_file.return_value = fake_save_data
+
+    mocker.patch('builtins.input', side_effect=['2', '2' ,'1', '5'])
+    mocker.patch('time.sleep', return_value=None)
+
+    game.start()
+    captured = capsys.readouterr()
+
+    assert "Save file does not exist. Pick a proper one." in captured.out.strip()
 
 
 def test_main_menu_explore(game, mocker):

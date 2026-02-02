@@ -25,7 +25,7 @@ class Character:
             self.hp += amount
             if self.hp > self.max_hp: self.hp = self.max_hp
         else:
-            print(f"Critical error: can not heal with negative value!")
+            print(f"Critical error: cannot heal with negative value!")
 
     def gain_experience(self, exp):
 

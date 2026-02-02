@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="79612934-3898-4c9b-ad9e-83ac72c1f882" name="Changes" comment="unnecessary lines of code removed">
+      <change afterPath="$PROJECT_DIR$/.idea/Tests_rpg_project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/characters/character.py" beforeDir="false" afterPath="$PROJECT_DIR$/characters/character.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/tests/test_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game/tests/test_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;klegocki&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/klegocki/Tests_rpg_project.git&quot;,
+    &quot;accountId&quot;: &quot;b151e2e2-7c08-4189-a412-b97567d684c1&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="38RnDZ2MRBWo9p99CPtuRq3qhKS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests in test_battle_system.py.executor": "Coverage",
+    "Python tests.Python tests in test_character.py.executor": "Coverage",
+    "Python tests.Python tests in test_database.py.executor": "Run",
+    "Python tests.Python tests in test_enemy.py.executor": "Coverage",
+    "Python tests.Python tests in test_game.py.executor": "Run",
+    "Python tests.Python tests in test_inventory.py.executor": "Run",
+    "Python tests.Python tests in test_item.py.executor": "Run",
+    "Python tests.Python tests in test_player.py.executor": "Coverage",
+    "Python tests.Python tests in test_potion.py.executor": "Run",
+    "Python tests.Python tests in test_spell.py.executor": "Run",
+    "Python tests.Python tests in test_weapon.py.executor": "Run",
+    "Python tests.Python tests in tests.executor": "Run",
+    "Python.game.executor": "Debug",
+    "Python.main.executor": "Run",
+    "Python.weapon.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="PyCoverageOptionsProvider">
+    <option name="myUseBundledCoveragePy" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\karna\Desktop\Nauka\Python\Tests_rpg_project\game" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Python tests in test_battle_system.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Tests_rpg_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/game/tests/test_battle_system.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_character.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Tests_rpg_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/characters/tests/test_character.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_enemy.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Tests_rpg_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/characters/tests/test_enemy.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_game.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Tests_rpg_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/game/tests/test_game.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_player.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Tests_rpg_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/characters/tests/test_player.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests in test_game.py" />
+        <item itemvalue="Python tests.Python tests in test_battle_system.py" />
+        <item itemvalue="Python tests.Python tests in test_enemy.py" />
+        <item itemvalue="Python tests.Python tests in test_character.py" />
+        <item itemvalue="Python tests.Python tests in test_player.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PY-253.28294.336" />
+        <option value="bundled-python-sdk-0978a7220b69-9867c7d4c0a4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.28294.336" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79612934-3898-4c9b-ad9e-83ac72c1f882" name="Changes" comment="" />
+      <created>1768771131500</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1768771131500</updated>
+      <workItem from="1768771132518" duration="7828000" />
+      <workItem from="1768780867313" duration="19000" />
+      <workItem from="1768941939833" duration="8492000" />
+      <workItem from="1769022184880" duration="12976000" />
+      <workItem from="1769191523277" duration="2154000" />
+      <workItem from="1769352239391" duration="12916000" />
+      <workItem from="1769380126216" duration="4690000" />
+      <workItem from="1770061971957" duration="844000" />
+      <workItem from="1770062841648" duration="7880000" />
+    </task>
+    <task id="LOCAL-00001" summary="base game and logic created">
+      <option name="closed" value="true" />
+      <created>1768779435316</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1768779435316</updated>
+    </task>
+    <task id="LOCAL-00002" summary="requirements.txt added + project structure changed">
+      <option name="closed" value="true" />
+      <created>1768947049064</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1768947049064</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added test files + potion class tested">
+      <option name="closed" value="true" />
+      <created>1768951713539</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1768951713539</updated>
+    </task>
+    <task id="LOCAL-00004" summary="item class tested">
+      <option name="closed" value="true" />
+      <created>1768951771633</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1768951771633</updated>
+    </task>
+    <task id="LOCAL-00005" summary="weapon class tested">
+      <option name="closed" value="true" />
+      <created>1768951800724</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1768951800724</updated>
+    </task>
+    <task id="LOCAL-00006" summary="spell class tested">
+      <option name="closed" value="true" />
+      <created>1768951860152</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1768951860152</updated>
+    </task>
+    <task id="LOCAL-00007" summary="inventory class tested">
+      <option name="closed" value="true" />
+      <created>1768952249239</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1768952249239</updated>
+    </task>
+    <task id="LOCAL-00008" summary="capsys assertions added for potion and spell classes">
+      <option name="closed" value="true" />
+      <created>1768952486820</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1768952486820</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added objects conversion to dictionaries">
+      <option name="closed" value="true" />
+      <created>1769029991391</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769029991391</updated>
+    </task>
+    <task id="LOCAL-00010" summary="database added to save characters">
+      <option name="closed" value="true" />
+      <created>1769037191735</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1769037191735</updated>
+    </task>
+    <task id="LOCAL-00011" summary="player tests adjusted">
+      <option name="closed" value="true" />
+      <created>1769037380859</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1769037380859</updated>
+    </task>
+    <task id="LOCAL-00012" summary="database class tested + minor variables modification">
+      <option name="closed" value="true" />
+      <created>1769040708504</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1769040708504</updated>
+    </task>
+    <task id="LOCAL-00013" summary="battle_system class tested + minor logic improvements">
+      <option name="closed" value="true" />
+      <created>1769360771707</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1769360771707</updated>
+    </task>
+    <task id="LOCAL-00014" summary="battle_system turn counter fixed">
+      <option name="closed" value="true" />
+      <created>1769360966187</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1769360966187</updated>
+    </task>
+    <task id="LOCAL-00015" summary="game class tested">
+      <option name="closed" value="true" />
+      <created>1769366754898</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1769366754898</updated>
+    </task>
+    <task id="LOCAL-00016" summary="unnecessary lines of code removed">
+      <option name="closed" value="true" />
+      <created>1769384846560</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1769384846560</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="base game and logic created" />
+    <MESSAGE value="requirements.txt added + project structure changed" />
+    <MESSAGE value="added test files + potion class tested" />
+    <MESSAGE value="item class tested" />
+    <MESSAGE value="weapon class tested" />
+    <MESSAGE value="spell class tested" />
+    <MESSAGE value="inventory class tested" />
+    <MESSAGE value="capsys assertions added for potion and spell classes" />
+    <MESSAGE value="added objects conversion to dictionaries" />
+    <MESSAGE value="database added to save characters" />
+    <MESSAGE value="player tests adjusted" />
+    <MESSAGE value="database class tested + minor variables modification" />
+    <MESSAGE value="battle_system class tested + minor logic improvements" />
+    <MESSAGE value="battle_system turn counter fixed" />
+    <MESSAGE value="game class tested" />
+    <MESSAGE value="unnecessary lines of code removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="unnecessary lines of code removed" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Tests_rpg_project$main.coverage" NAME="main Coverage Results" MODIFIED="1770070488417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tests_rpg_project$.coverage" NAME=" Coverage Results" MODIFIED="1770066824935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tests_rpg_project$weapon.coverage" NAME="weapon Coverage Results" MODIFIED="1768946865816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/equipment" />
+    <SUITE FILE_PATH="coverage/Tests_rpg_project$game.coverage" NAME="game Coverage Results" MODIFIED="1770067110721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
+  </component>
+</project>
